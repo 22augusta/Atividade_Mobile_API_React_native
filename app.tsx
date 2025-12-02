@@ -16,9 +16,8 @@ type Movie = {
   overview: string;
   poster_path: string;
 };
+import { API_KEY, API_BASE } from '@env';
 
-const API_KEY = "SUA_API_KEY_AQUI"; // Substitua pela sua chave da TMDB
-const API_BASE = "https://api.themoviedb.org/3";
 
 export default function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -43,6 +42,8 @@ export default function App() {
   }
 
   useEffect(() => {
+    // Log das variáveis de ambiente para teste local (remova após verificação)
+    console.log('ENV:', { API_KEY, API_BASE });
     load();
   }, [query]);
 
